@@ -1,0 +1,23 @@
+#!/usr/bin/python
+
+import sys,urlparse,re
+
+#single first var
+#print sys.argv[1]
+
+#urlparse
+#path = urlparse.urlparse(sys.argv[1])
+#print(path.path)
+
+URL=sys.argv[1]
+if re.search('\d{4}\-\d{2}\-\d{2}',URL):
+ result=re.search('\d{4}\-\d{2}\-\d{2}',URL)
+ date=result.group().replace('-', ' ').split(' ')
+ print(date[1])
+
+TEAMS="por_rsl"
+MATCHID=sys.argv[2]
+wc="whole"
+quality="3000"
+URL="http://nlds14.neulion.com/nlds_vod/mls/vod/"+date[0]+"/"+date[1]+"/"+date[2]+"/"+MATCHID+"/2_"+MATCHID+"_"+TEAMS+"_"+date[0]+"_h_"+wc+"_1_"+quality+".mp4"
+print(URL)
